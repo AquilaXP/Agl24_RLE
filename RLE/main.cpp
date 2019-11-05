@@ -47,13 +47,14 @@ int main( int ac, char* av[] )
      {
          if( ac != 4 )
          {
-             if( ac == 2 && av[1] == "-h" )
+             if( (ac == 2 && av[1] == "-h") || ac == 1)
              {
-                 std::cout << "RLE archiving: -p|-u|-pb|-p input_file output_file\n";
-                 std::cout << "-p\tarchiving using RLE-ex algorithm\n";
-                 std::cout << "-u\tUnarchiving by RLE-ex algorithm\n";
-                 std::cout << "-pb\tarchiving using RLE algorithm\n";
-                 std::cout << "-ub\tUnarchiving by RLE algorithm\n";
+                 std::cout << u8"RLE archiving: -p|-u|-pb|-ub input_file output_file\n";
+                 std::cout << u8"-p\tarchiving using RLE-ex algorithm\n";
+                 std::cout << u8"-u\tunarchiving by RLE-ex algorithm\n";
+                 std::cout << u8"-pb\tarchiving using RLE algorithm\n";
+                 std::cout << u8"-ub\tunarchiving by RLE algorithm\n";
+                 return 0;
              }
              else
                 throw std::runtime_error( "incorec input param: -p|-u|-pb|-p input_file output_file" );
